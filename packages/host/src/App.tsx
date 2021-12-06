@@ -17,7 +17,6 @@ export default () => (
           flexDirection: "column",
         }}
       >
-        <h1>HOST</h1>
         <div
           style={{
             display: "flex",
