@@ -9,7 +9,7 @@ export default () => (
     <React.Suspense fallback="Loading header...">
       <div
         style={{
-          border: "1px dashed black",
+          border: "1px solid black",
           height: "50vh",
           display: "flex",
           justifyContent: "space-around",
@@ -29,13 +29,13 @@ export default () => (
             style={{
               marginRight: "2rem",
               padding: "2rem",
-              border: "1px dashed black",
+              border: "1px solid black",
             }}
           >
             <h2>Mfe1</h2>
             <Mfe1 />
           </div>
-          <div style={{ border: "1px dashed black", padding: "2rem" }}>
+          <div style={{ border: "1px solid black", padding: "2rem" }}>
             <h2>Mfe2</h2>
             <Mfe2 />
           </div>
