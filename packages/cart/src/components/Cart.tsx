@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const cart = () => {
+const Cart = () => {
   return (
     <div>
       <p>cart </p>
@@ -8,4 +8,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;

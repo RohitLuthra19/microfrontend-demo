@@ -28,6 +28,7 @@ module.exports = {
       remotes: {
         header: "header",
         home: "home",
+        cart: "cart",
       },
       shared: {
         ...deps,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const header = () => {
+const Header = () => {
   return (
     <div>
       <p>header </p>
@@ -8,4 +8,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

@@ -3,10 +3,12 @@ import React from "react";
 import Home from "home/Home";
 //@ts-ignore
 import Header from "header/Header";
+//@ts-ignore
+//import Cart from "cart/Cart";
 
 export default () => (
   <div style={{ margin: "20px" }}>
-    <React.Suspense fallback="Loading header...">
+    <React.Suspense fallback="Loading components...">
       <div
         style={{
           border: "1px solid black",
@@ -37,6 +39,10 @@ export default () => (
           <div style={{ border: "1px solid black", padding: "2rem" }}>
             <h2>Home</h2>
             <Home />
+          </div>
+          <div style={{ border: "1px solid black", padding: "2rem" }}>
+            <h2>Cart</h2>
+            {/* <Cart /> */}
           </div>
         </div>
       </div>

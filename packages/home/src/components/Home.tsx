@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const home = () => {
+const Home = () => {
   return (
     <div>
       <p>home </p>
@@ -8,4 +8,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;

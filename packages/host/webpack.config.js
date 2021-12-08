@@ -36,6 +36,7 @@ module.exports = {
       remotes: {
         header: "header",
         home: "home",
+        car: "cart",
       },
       shared: {
         ...deps,

@@ -3,9 +3,9 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <cart className="App-cart">
+      <header className="App-header">
         <p>cart</p>
-      </cart>
+      </header>
     </div>
   );
 }
