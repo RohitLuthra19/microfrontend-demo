@@ -38,6 +38,9 @@ module.exports = {
         home: "home",
         cart: "cart",
       },
+      exposes: {
+        "./store": "./src/redux/store",
+      },
       shared: {
         ...deps,
         react: { singleton: true, eager: true, requiredVersion: deps.react },

@@ -11,7 +11,6 @@ export default () => (
     <React.Suspense fallback="Loading components...">
       <div
         style={{
-          border: "1px solid black",
           height: "50vh",
           display: "flex",
           justifyContent: "space-around",
@@ -30,17 +29,21 @@ export default () => (
             style={{
               marginRight: "2rem",
               padding: "2rem",
-              border: "1px solid black",
             }}
           >
             <h2>Header</h2>
             <Header />
           </div>
-          <div style={{ border: "1px solid black", padding: "2rem" }}>
+          <div
+            style={{
+              padding: "2rem",
+              marginRight: "2rem",
+            }}
+          >
             <h2>Home</h2>
             <Home />
           </div>
-          <div style={{ border: "1px solid black", padding: "2rem" }}>
+          <div style={{ padding: "2rem" }}>
             <h2>Cart</h2>
             <Cart />
           </div>
