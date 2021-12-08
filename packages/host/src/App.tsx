@@ -4,7 +4,7 @@ import Home from "home/Home";
 //@ts-ignore
 import Header from "header/Header";
 //@ts-ignore
-//import Cart from "cart/Cart";
+import Cart from "cart/Cart";
 
 export default () => (
   <div style={{ margin: "20px" }}>
@@ -42,7 +42,7 @@ export default () => (
           </div>
           <div style={{ border: "1px solid black", padding: "2rem" }}>
             <h2>Cart</h2>
-            {/* <Cart /> */}
+            <Cart />
           </div>
         </div>
       </div>
