@@ -23,12 +23,12 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "mfe2",
-      library: { type: "var", name: "mfe2" },
+      name: "header",
+      library: { type: "var", name: "header" },
       filename: "remoteEntry.js",
       exposes: {
         // expose each component
-        "./Mfe2": "./src/components/Mfe2",
+        "./Header": "./src/components/Header",
       },
       shared: {
         ...deps,

@@ -1,10 +1,18 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
+const path = require("path");
 const deps = require("./package.json").dependencies;
 
 module.exports = {
   entry: "./src/index.ts",
   mode: "development",
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    port: 3002,
+  },
+  output: {
+    publicPath: "http://localhost:3002/",
+  },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
@@ -23,12 +31,12 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "mfe1",
-      library: { type: "var", name: "mfe1" },
+      name: "home",
+      library: { type: "var", name: "home" },
       filename: "remoteEntry.js",
       exposes: {
         // expose each component
-        "./Mfe1": "./src/components/Mfe1",
+        "./Home": "./src/components/Home",
       },
       shared: {
         ...deps,

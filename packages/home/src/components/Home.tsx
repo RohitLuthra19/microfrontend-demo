@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const Mfe1 = () => {
+const home = () => {
   return (
     <div>
-      <p>MFE1 </p>
+      <p>home </p>
     </div>
   );
 };
 
-export default Mfe1;
+export default home;

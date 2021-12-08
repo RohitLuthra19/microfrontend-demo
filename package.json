@@ -6,8 +6,8 @@
   },
   "workspaces": {
     "packages": [
-      "mfe1",
-      "mfe2",
+      "header",
+      "home",
       "host"
     ]
   },

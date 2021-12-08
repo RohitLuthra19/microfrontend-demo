@@ -1,8 +1,8 @@
 import React from "react";
 //@ts-ignore
-import Mfe2 from "mfe2/Mfe2";
+import Home from "home/Home";
 //@ts-ignore
-import Mfe1 from "mfe1/Mfe1";
+import Header from "header/Header";
 
 export default () => (
   <div style={{ margin: "20px" }}>
@@ -31,12 +31,12 @@ export default () => (
               border: "1px solid black",
             }}
           >
-            <h2>Mfe1</h2>
-            <Mfe1 />
+            <h2>Header</h2>
+            <Header />
           </div>
           <div style={{ border: "1px solid black", padding: "2rem" }}>
-            <h2>Mfe2</h2>
-            <Mfe2 />
+            <h2>Home</h2>
+            <Home />
           </div>
         </div>
       </div>
