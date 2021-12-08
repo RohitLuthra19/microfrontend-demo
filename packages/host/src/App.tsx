@@ -1,54 +1,72 @@
 import React from "react";
-//@ts-ignore
-import Home from "home/Home";
-//@ts-ignore
-import Header from "header/Header";
-//@ts-ignore
-import Cart from "cart/Cart";
+import { RootStateOrAny, useSelector } from "react-redux";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { connect } from "react-redux";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Cart as CartIcon } from "react-bootstrap-icons";
 
-export default () => (
-  <div style={{ margin: "20px" }}>
-    <React.Suspense fallback="Loading components...">
-      <div
-        style={{
-          height: "50vh",
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-          }}
-        >
-          <div
-            style={{
-              marginRight: "2rem",
-              padding: "2rem",
-            }}
-          >
-            <h2>Header</h2>
-            <Header />
-          </div>
-          <div
-            style={{
-              padding: "2rem",
-              marginRight: "2rem",
-            }}
-          >
-            <h2>Home</h2>
-            <Home />
-          </div>
-          <div style={{ padding: "2rem" }}>
-            <h2>Cart</h2>
-            <Cart />
-          </div>
-        </div>
-      </div>
-    </React.Suspense>
-  </div>
+//@ts-ignore
+const Home = React.lazy(() => import("home/Home"));
+//@ts-ignore
+const Cart = React.lazy(() => import("cart/Cart"));
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const HomeRoute = () => (
+  <React.Suspense fallback={<div />}>
+    <Home />
+  </React.Suspense>
 );
+
+const CartRoute = () => (
+  <React.Suspense fallback={<div />}>
+    <Cart />
+  </React.Suspense>
+);
+
+const App = () => {
+  const items = useSelector((state: RootStateOrAny) => state.items);
+  return (
+    <Router>
+      <>
+        <Navbar bg="dark" expand="xl">
+          <Navbar.Brand>
+            <Link to="/" style={{ paddingLeft: "20px", color: "white" }}>
+              fKart
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link>
+                <Link to="/" style={{ color: "white" }}>
+                  Home
+                </Link>
+              </Nav.Link>
+            </Nav>
+            <Link
+              to="/cart"
+              style={{
+                paddingRight: 10,
+              }}
+            >
+              <CartIcon color="white" size={30} />
+              <span
+                style={{ color: "white", fontWeight: "bold", paddingLeft: 5 }}
+              >
+                2
+              </span>
+            </Link>
+          </Navbar.Collapse>
+        </Navbar>
+        <Container>
+          <Routes>
+            <Route path="/" element={<HomeRoute />} />
+            <Route path="/cart" element={<CartRoute />} />
+          </Routes>
+        </Container>
+      </>
+    </Router>
+  );
+};
+
+export default connect((state) => state)(App);
