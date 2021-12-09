@@ -34,7 +34,7 @@ module.exports = {
       name: "host",
       library: { type: "var", name: "host" },
       remotes: {
-        header: "header",
+        detail: "detail",
         home: "home",
         cart: "cart",
       },

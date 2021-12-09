@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const Header = () => {
+const Detail = () => {
   return (
     <div>
-      <p>header </p>
+      <p>detail </p>
     </div>
   );
 };
 
-export default Header;
+export default Detail;

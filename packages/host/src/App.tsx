@@ -8,12 +8,20 @@ import { Cart as CartIcon } from "react-bootstrap-icons";
 //@ts-ignore
 const Home = React.lazy(() => import("home/Home"));
 //@ts-ignore
+const Detail = React.lazy(() => import("detail/Detail"));
+//@ts-ignore
 const Cart = React.lazy(() => import("cart/Cart"));
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const HomeRoute = () => (
   <React.Suspense fallback={<div />}>
     <Home />
+  </React.Suspense>
+);
+
+const DetailRoute = () => (
+  <React.Suspense fallback={<div />}>
+    <Detail />
   </React.Suspense>
 );
 
@@ -62,6 +70,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomeRoute />} />
             <Route path="/cart" element={<CartRoute />} />
+            <Route path="/detail" element={<DetailRoute />} />
           </Routes>
         </Container>
       </>

@@ -31,12 +31,12 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "header",
-      library: { type: "var", name: "header" },
+      name: "detail",
+      library: { type: "var", name: "detail" },
       filename: "remoteEntry.js",
       exposes: {
         // expose each component
-        "./Header": "./src/components/Header",
+        "./Detail": "./src/components/Detail",
       },
       shared: {
         ...deps,
