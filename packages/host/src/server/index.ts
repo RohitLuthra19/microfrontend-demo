@@ -34,13 +34,13 @@ export function makeServer({ environment = "test" }) {
 
       this.get("/products", (schema: any) => schema.products.all());
 
-      let newId = 3;
+      /* let newId = 3;
       this.post("/add", (schema: any, request) => {
         const attrs = JSON.parse(request.requestBody);
         attrs.id = newId++;
 
         return schema.products.create(attrs);
-      });
+      }); */
     },
   });
 }
