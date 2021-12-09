@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FormControl, Row, Col, Card, Spinner, Button } from "react-bootstrap";
+import { connect, useDispatch } from "react-redux";
 import useApi from "../hooks/useApi";
 
 const Home = () => {
+  const dispatch = useDispatch();
   const [search, searchSet] = useState("");
   const {
     data: { products },
@@ -10,9 +12,12 @@ const Home = () => {
     error,
   }: any = useApi("/api/products");
 
-  function handleAddToCart(item: any) {
-    console.log(item);
-  }
+  const postAddToCart = (payload: any) => {
+    dispatch({
+      type: "SET_ITEMS",
+      payload,
+    });
+  };
 
   if (error) return <p>{error}</p>;
 
@@ -68,7 +73,7 @@ const Home = () => {
                       <React.Suspense fallback={<span />}>
                         <Button
                           variant="secondary"
-                          onClick={() => handleAddToCart(item)}
+                          onClick={() => postAddToCart(item)}
                           style={{ width: "100%" }}
                         >
                           Add To Cart
