@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { connect } from "react-redux";
@@ -38,8 +38,15 @@ const App = () => {
       <>
         <Navbar bg="dark" expand="xl">
           <Navbar.Brand>
-            <Link to="/" style={{ paddingLeft: "20px", color: "white" }}>
-              fKart
+            <Link
+              to="/"
+              style={{
+                paddingLeft: "20px",
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              Flipkart
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
