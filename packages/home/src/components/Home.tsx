@@ -4,7 +4,15 @@ import useApi from "../hooks/useApi";
 
 const Home = () => {
   const [search, searchSet] = useState("");
-  const { data, loading, error } = useApi("/api/products");
+  const {
+    data: { products },
+    loading,
+    error,
+  }: any = useApi("/api/products");
+
+  function handleAddToCart(item: any) {
+    console.log(item);
+  }
 
   if (error) return <p>{error}</p>;
 
@@ -30,8 +38,8 @@ const Home = () => {
           paddingTop: "1em",
         }}
       >
-        {data &&
-          data
+        {products &&
+          products
             ?.filter(
               (item: any) =>
                 item?.name?.toLowerCase().indexOf(search.toLowerCase()) !== -1
@@ -60,7 +68,7 @@ const Home = () => {
                       <React.Suspense fallback={<span />}>
                         <Button
                           variant="secondary"
-                          onClick={() => console.log(item)}
+                          onClick={() => handleAddToCart(item)}
                           style={{ width: "100%" }}
                         >
                           Add To Cart
