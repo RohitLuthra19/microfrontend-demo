@@ -35,6 +35,9 @@ module.exports = {
       name: "cart",
       library: { type: "var", name: "cart" },
       filename: "remoteEntry.js",
+      remotes: {
+        host: "host@http://localhost:3000/remoteEntry.js",
+      },
       exposes: {
         // expose each component
         "./Cart": "./src/components/Cart",
