@@ -1,12 +1,14 @@
+import { Provider } from "react-redux";
 import "./App.css";
+//@ts-ignore
+import store from "host/store";
+import Detail from "./components/Detail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>header</p>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Detail />
+    </Provider>
   );
 }
 

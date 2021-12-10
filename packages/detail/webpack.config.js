@@ -34,6 +34,9 @@ module.exports = {
       name: "detail",
       library: { type: "var", name: "detail" },
       filename: "remoteEntry.js",
+      remotes: {
+        host: "host@http://localhost:3000/remoteEntry.js",
+      },
       exposes: {
         // expose each component
         "./Detail": "./src/components/Detail",
