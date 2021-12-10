@@ -36,11 +36,17 @@ const Header = () => {
             to="/cart"
             style={{
               paddingRight: 10,
+              textDecoration: "none",
+              marginRight: "20px",
             }}
           >
             <CartIcon color="white" size={30} />
             <span
-              style={{ color: "white", fontWeight: "bold", paddingLeft: 5 }}
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                paddingLeft: 5,
+              }}
             >
               {items?.length}
             </span>
