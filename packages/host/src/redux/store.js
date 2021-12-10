@@ -4,9 +4,7 @@ import thunk from "redux-thunk";
 const reducer = (state = { items: [] }, { type, payload }) => {
   switch (type) {
     case "SET_ITEMS": {
-      return {
-        state: { items: [...state.items, payload] },
-      };
+      return { items: [...state.items, payload] };
     }
     default:
       return state;

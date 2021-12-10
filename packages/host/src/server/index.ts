@@ -30,7 +30,7 @@ export function makeServer({ environment = "test" }) {
       } as object);
     },
     routes() {
-      this.namespace = "api";
+      this.namespace = "/api";
 
       this.get("/products", (schema: any) => schema.products.all());
 
@@ -41,6 +41,8 @@ export function makeServer({ environment = "test" }) {
 
         return schema.products.create(attrs);
       }); */
+      // Allow unhandled requests on the current domain to pass through
+      this.passthrough();
     },
   });
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, Spinner } from "react-bootstrap";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Cart as CartIcon } from "react-bootstrap-icons";
@@ -13,21 +13,26 @@ const Detail = React.lazy(() => import("detail/Detail"));
 const Cart = React.lazy(() => import("cart/Cart"));
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const Loader = () => (
+  <Spinner animation="border" role="status">
+    <span className="visually-hidden">Loading...</span>
+  </Spinner>
+);
 const HomeRoute = () => (
-  <React.Suspense fallback={<div />}>
+  <React.Suspense fallback={<Loader />}>
     <Home />
   </React.Suspense>
 );
 
 const DetailRoute = () => (
-  <React.Suspense fallback={<div />}>
+  <React.Suspense fallback={<Loader />}>
     <Detail />
   </React.Suspense>
 );
 
 const CartRoute = () => (
-  <React.Suspense fallback={<div />}>
-    <Cart />
+  <React.Suspense fallback={<Loader />}>
+    <h1>Hello</h1>
   </React.Suspense>
 );
 
@@ -68,7 +73,7 @@ const App = () => {
               <span
                 style={{ color: "white", fontWeight: "bold", paddingLeft: 5 }}
               >
-                2
+                {items?.length}
               </span>
             </Link>
           </Navbar.Collapse>
@@ -85,4 +90,4 @@ const App = () => {
   );
 };
 
-export default connect((state) => state)(App);
+export default App;
