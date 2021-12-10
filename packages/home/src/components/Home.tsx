@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FormControl, Row, Col, Card, Spinner, Button } from "react-bootstrap";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import useApi from "../hooks/useApi";
+import { BrowserRouter } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();

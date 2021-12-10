@@ -26,7 +26,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>
+            <Nav.Link id="RouterNavLink">
               <Link to="/" style={{ color: "white" }}>
                 Home
               </Link>

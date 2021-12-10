@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Spinner } from "react-bootstrap";
-import { BrowserRouter, Routes as Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes as Switch, Route } from "react-router-dom";
 
 //@ts-ignore
 const Home = React.lazy(() => import("home/Home"));
@@ -30,23 +30,21 @@ const DetailRoute = () => (
 
 const CartRoute = () => (
   <React.Suspense fallback={<Loader />}>
-    <h1>Hello</h1>
+    <Cart />
   </React.Suspense>
 );
 
 const Routes = ({ page = "home" }) => {
   return (
     <BrowserRouter>
-      <>
-        <Header />
-        <Container>
-          <Switch>
-            <Route path="/" element={<HomeRoute />} />
-            <Route path="/detail" element={<DetailRoute />} />
-            <Route path="/cart" element={<CartRoute />} />
-          </Switch>
-        </Container>
-      </>
+      <Header />
+      <Container>
+        <Switch>
+          <Route path="/" element={<HomeRoute />} />
+          <Route path="/detail/:id" element={<DetailRoute />} />
+          <Route path="/cart" element={<CartRoute />} />
+        </Switch>
+      </Container>
     </BrowserRouter>
   );
 };

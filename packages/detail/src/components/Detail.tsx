@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import { connect, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const Detail = () => {
+  const { id } = useParams();
+
+  useEffect(() => {
+    console.log(id);
+  }, [id]);
+
   return (
     <Card>
       <Container>
@@ -12,10 +18,7 @@ const Detail = () => {
           </Col>
           <Col>
             <Card.Body>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
+              <Card.Text>Some quick example - {id}</Card.Text>
             </Card.Body>
           </Col>
         </Row>
