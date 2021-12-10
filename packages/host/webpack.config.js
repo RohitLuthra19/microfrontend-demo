@@ -9,6 +9,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     port: 3000,
+    historyApiFallback: true,
   },
   output: {
     publicPath: "http://localhost:3000/",
@@ -38,8 +39,14 @@ module.exports = {
         home: "home",
         cart: "cart",
       },
+      /* remotes: {
+        cart: "cart@http://localhost:3003/remoteEntry.js",
+        detail: "detail@http://localhost:3001/remoteEntry.js",
+        home: "home@http://localhost:3002/remoteEntry.js",
+      }, */
       exposes: {
         "./store": "./src/redux/store",
+        "./Routes": "./src/Routes",
       },
       shared: {
         ...deps,

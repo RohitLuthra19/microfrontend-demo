@@ -1,4 +1,4 @@
-import App from "./App";
+import Routes from "./Routes";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
@@ -13,7 +13,7 @@ if (environment !== "production") {
 const Host = () => {
   return (
     <Provider store={store}>
-      <App />
+      <Routes />
     </Provider>
   );
 };
