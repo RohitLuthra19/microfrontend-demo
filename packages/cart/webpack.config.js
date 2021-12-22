@@ -9,6 +9,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     port: 3003,
+    historyApiFallback: true,
   },
   output: {
     publicPath: "http://localhost:3003/",
@@ -34,6 +35,9 @@ module.exports = {
       name: "cart",
       library: { type: "var", name: "cart" },
       filename: "remoteEntry.js",
+      remotes: {
+        host: "host@http://localhost:3000/remoteEntry.js",
+      },
       exposes: {
         // expose each component
         "./Cart": "./src/components/Cart",

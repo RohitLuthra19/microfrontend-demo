@@ -1,5 +1,5 @@
 {
-  "name": "header",
+  "name": "detail",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
@@ -24,6 +24,9 @@
   },
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-bootstrap": "^2.0.3",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.1.0"
   }
 }

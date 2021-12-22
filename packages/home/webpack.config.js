@@ -9,6 +9,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     port: 3002,
+    historyApiFallback: true,
   },
   output: {
     publicPath: "http://localhost:3002/",
@@ -34,6 +35,9 @@ module.exports = {
       name: "home",
       library: { type: "var", name: "home" },
       filename: "remoteEntry.js",
+      remotes: {
+        host: "host@http://localhost:3000/remoteEntry.js",
+      },
       exposes: {
         // expose each component
         "./Home": "./src/components/Home",

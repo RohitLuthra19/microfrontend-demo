@@ -1,12 +1,16 @@
+import { Provider } from "react-redux";
 import "./App.css";
+
+//@ts-ignore
+import store from "host/store";
+//@ts-ignore
+import Routes from "host/Routes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>cart</p>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Routes />
+    </Provider>
   );
 }
 
