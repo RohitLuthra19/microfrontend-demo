@@ -26,8 +26,9 @@ module.exports = {
       name: "host",
       library: { type: "var", name: "host" },
       remotes: {
-        mfe1: "mfe1",
-        mfe2: "mfe2",
+        detail: "detail",
+        home: "home",
+        cart: "cart",
       },
       shared: {
         ...deps,

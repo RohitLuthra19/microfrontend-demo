@@ -8,11 +8,11 @@ module.exports = {
   mode: "development",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    port: 3000,
+    port: 3001,
     historyApiFallback: true,
   },
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:3001/",
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
@@ -26,27 +26,21 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ["css-loader"],
       },
     ],
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "host",
-      library: { type: "var", name: "host" },
+      name: "detail",
+      library: { type: "var", name: "detail" },
+      filename: "remoteEntry.js",
       remotes: {
-        detail: "detail",
-        home: "home",
-        cart: "cart",
+        host: "host@http://localhost:3000/remoteEntry.js",
       },
-      /* remotes: {
-        cart: "cart@http://localhost:3003/remoteEntry.js",
-        detail: "detail@http://localhost:3001/remoteEntry.js",
-        home: "home@http://localhost:3002/remoteEntry.js",
-      }, */
       exposes: {
-        "./store": "./src/redux/store",
-        "./Routes": "./src/Routes",
+        // expose each component
+        "./Detail": "./src/components/Detail",
       },
       shared: {
         ...deps,
@@ -59,7 +53,7 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
-      template: "./public/index.dev.html",
+      template: "./public/index.html",
     }),
   ],
 };
