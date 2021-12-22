@@ -34,6 +34,12 @@ export function makeServer({ environment = "test" }) {
 
       this.get("/products", (schema: any) => schema.products.all());
 
+      this.get("/product/:id", (schema: any, request) => {
+        let id = request.params.id;
+
+        return schema.products.find(id);
+      });
+
       /* let newId = 3;
       this.post("/add", (schema: any, request) => {
         const attrs = JSON.parse(request.requestBody);

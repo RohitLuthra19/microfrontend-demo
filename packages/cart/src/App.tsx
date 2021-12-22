@@ -1,14 +1,15 @@
 import { Provider } from "react-redux";
 import "./App.css";
-import Cart from "./components/Cart";
 
 //@ts-ignore
 import store from "host/store";
+//@ts-ignore
+import Routes from "host/Routes";
 
 function App() {
   return (
     <Provider store={store}>
-      <Cart />
+      <Routes />
     </Provider>
   );
 }

@@ -2,12 +2,13 @@ import { Provider } from "react-redux";
 import "./App.css";
 //@ts-ignore
 import store from "host/store";
-import Detail from "./components/Detail";
+//@ts-ignore
+import Routes from "host/Routes";
 
 function App() {
   return (
     <Provider store={store}>
-      <Detail />
+      <Routes />
     </Provider>
   );
 }

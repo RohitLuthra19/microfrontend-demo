@@ -52,39 +52,41 @@ const Home = () => {
                 item?.name?.toLowerCase().indexOf(search.toLowerCase()) !== -1
             )
             .map((item: any) => (
-              <Card style={{ width: "92%", padding: "10px" }} key={item?.id}>
-                <Card.Img
-                  variant="top"
-                  src={item?.image}
-                  style={{
-                    maxHeight: 200,
-                    objectFit: "contain",
-                    width: "auto",
-                    height: 200,
-                  }}
-                />
-                <Card.Body>
-                  <Card.Title style={{ marginBottom: "20px" }}>
-                    {item?.name}
-                  </Card.Title>
-                  <Row>
-                    <Col xs={4} style={{ margin: "auto" }}>
-                      ₹{item?.price}
-                    </Col>
-                    <Col xs={8}>
-                      <React.Suspense fallback={<span />}>
-                        <Button
-                          variant="secondary"
-                          onClick={() => postAddToCart(item)}
-                          style={{ width: "100%" }}
-                        >
-                          Add To Cart
-                        </Button>
-                      </React.Suspense>
-                    </Col>
-                  </Row>
-                </Card.Body>
-              </Card>
+              <Link to={`/detail/${item.id}`} key={item?.id}>
+                <Card style={{ width: "92%", padding: "10px" }} key={item?.id}>
+                  <Card.Img
+                    variant="top"
+                    src={item?.image}
+                    style={{
+                      maxHeight: 200,
+                      objectFit: "contain",
+                      width: "auto",
+                      height: 200,
+                    }}
+                  />
+                  <Card.Body>
+                    <Card.Title style={{ marginBottom: "20px" }}>
+                      {item?.name}
+                    </Card.Title>
+                    <Row>
+                      <Col xs={4} style={{ margin: "auto" }}>
+                        ₹{item?.price}
+                      </Col>
+                      <Col xs={8}>
+                        <React.Suspense fallback={<span />}>
+                          <Button
+                            variant="secondary"
+                            onClick={() => postAddToCart(item)}
+                            style={{ width: "100%" }}
+                          >
+                            Add To Cart
+                          </Button>
+                        </React.Suspense>
+                      </Col>
+                    </Row>
+                  </Card.Body>
+                </Card>
+              </Link>
             ))}
       </div>
     </>
