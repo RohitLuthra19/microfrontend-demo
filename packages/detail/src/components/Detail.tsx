@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Card, Spinner, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
 interface IUser {
@@ -10,6 +11,7 @@ interface IUser {
 }
 
 const Detail = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<IUser>({
@@ -32,6 +34,13 @@ const Detail = () => {
       });
   }, []);
 
+  const postAddToCart = (payload: any) => {
+    dispatch({
+      type: "SET_ITEMS",
+      payload,
+    });
+  };
+
   return loading ? (
     <Spinner animation="border" role="status">
       <span className="visually-hidden">Loading...</span>
@@ -48,6 +57,13 @@ const Detail = () => {
               <Card.Text>
                 {data.name} - {data.price}
               </Card.Text>
+              <Button
+                variant="secondary"
+                onClick={() => postAddToCart(data)}
+                style={{ width: "100%" }}
+              >
+                Add To Cart
+              </Button>
             </Card.Body>
           </Col>
         </Row>
